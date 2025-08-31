@@ -23,7 +23,7 @@ jobs:
       
       - name: Clone Code Diff Review
         run: |
-          git clone ${{ secrets.CODE_DIFF_REVIEW_REPO }} -o code-diff-review
+          git clone ${{ secrets.CODE_DIFF_REVIEW_REPO }} code-diff-review
           cd code-diff-review
           pip install -r requirements.txt
       
