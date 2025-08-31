@@ -1,0 +1,3 @@
+cururo
+requests
+PyGithub

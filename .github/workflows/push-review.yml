@@ -1,0 +1,127 @@
+name: Push Review
+on:
+  push:
+    branches: ['**']
+    
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+  
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+      
+      - name: Clone Code Diff Review
+        run: |
+          git clone ${{ secrets.CODE_DIFF_REVIEW_REPO }}
+          cd code-diff-review
+          pip install -r requirements.txt
+      
+      - name: Check if PR exists for this branch
+        id: check-pr
+        run: |
+          PR_INFO=$(gh pr list --head ${{ github.ref_name }} --json number,headRefOid --limit 1)
+          PR_COUNT=$(echo "$PR_INFO" | jq length)
+          
+          if [[ $PR_COUNT -gt 0 ]]; then
+            PR_NUMBER=$(echo "$PR_INFO" | jq -r '.[0].number')
+            echo "pr_exists=true" >> $GITHUB_OUTPUT
+            echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
+          else
+            echo "pr_exists=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      
+      - name: Check if this is a merge commit
+        id: check-merge
+        run: |
+          # Un merge commit tiene más de un padre
+          PARENT_COUNT=$(git cat-file -p ${{ github.sha }} | grep "^parent " | wc -l)
+          if [[ $PARENT_COUNT -gt 1 ]]; then
+            echo "is_merge=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_merge=false" >> $GITHUB_OUTPUT
+          fi
+      
+      # Caso 1: Push a rama sin PR (crear issue)
+      - name: Run Review for Push without PR
+        if: steps.check-pr.outputs.pr_exists == 'false' && steps.check-merge.outputs.is_merge == 'false'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_ASSISTANT_ID: ${{ secrets.OPENAI_ASSISTANT_ID }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          REPO: ${{ github.repository }}
+          MESSAGE: ${{ github.event.head_commit.message }}
+          GH_BEFORE: ${{ github.event.before }} 
+          SHA: ${{ github.sha }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          python code-diff-review/src/script.py \
+            --openai-key "$OPENAI_API_KEY" \
+            --assistant-id "$OPENAI_ASSISTANT_ID" \
+            --token "$GH_TOKEN" \
+            --repo "$REPO" \
+            --message "$MESSAGE" \
+            --gh-before "$GH_BEFORE" \
+            --sha "$SHA" \
+            --branch "$BRANCH"
+      
+      # Caso 2: Push a rama con PR (crear comentario)
+      - name: Run Review for Push with PR
+        if: steps.check-pr.outputs.pr_exists == 'true' && steps.check-merge.outputs.is_merge == 'false'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_ASSISTANT_ID: ${{ secrets.OPENAI_ASSISTANT_ID }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          REPO: ${{ github.repository }}
+          MESSAGE: ${{ github.event.head_commit.message }}
+          GH_BEFORE: ${{ github.event.before }} 
+          SHA: ${{ github.sha }}
+          BRANCH: ${{ github.ref_name }}
+          PR_NUMBER: ${{ steps.check-pr.outputs.pr_number }}
+        run: |
+          python code-diff-review/src/script.py \
+            --openai-key "$OPENAI_API_KEY" \
+            --assistant-id "$OPENAI_ASSISTANT_ID" \
+            --token "$GH_TOKEN" \
+            --repo "$REPO" \
+            --message "$MESSAGE" \
+            --gh-before "$GH_BEFORE" \
+            --sha "$SHA" \
+            --branch "$BRANCH" \
+            --is-pr \
+            --pr-number "$PR_NUMBER"
+      
+      # Caso 4: Merge commit (crear issue)
+      - name: Run Review for Merge Commit
+        if: steps.check-merge.outputs.is_merge == 'true'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_ASSISTANT_ID: ${{ secrets.OPENAI_ASSISTANT_ID }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          REPO: ${{ github.repository }}
+          MESSAGE: ${{ github.event.head_commit.message }}
+          GH_BEFORE: ${{ github.event.before }} 
+          SHA: ${{ github.sha }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          python code-diff-review/src/script.py \
+            --openai-key "$OPENAI_API_KEY" \
+            --assistant-id "$OPENAI_ASSISTANT_ID" \
+            --token "$GH_TOKEN" \
+            --repo "$REPO" \
+            --message "$MESSAGE" \
+            --gh-before "$GH_BEFORE" \
+            --sha "$SHA" \
+            --branch "$BRANCH"

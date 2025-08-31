@@ -1,0 +1,53 @@
+name: Pull Request Review
+on:
+  pull_request:
+    types: [opened]
+    branches: ['**']
+    
+permissions:
+  contents: read
+  pull-requests: write
+  
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+      
+      - name: Clone Code Diff Review
+        run: |
+          git clone ${{ secrets.CODE_DIFF_REVIEW_REPO }}
+          cd code-diff-review
+          pip install -r requirements.txt
+      
+      # Caso 3: Creación de PR (comparar con rama de destino)
+      - name: Run Review for New Pull Request
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_ASSISTANT_ID: ${{ secrets.OPENAI_ASSISTANT_ID }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          REPO: ${{ github.repository }}
+          MESSAGE: ${{ github.event.pull_request.title }}
+          GH_BEFORE: ${{ github.event.pull_request.base.sha }} 
+          SHA: ${{ github.event.pull_request.head.sha }}
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          python code-diff-review/src/script.py \
+            --openai-key "$OPENAI_API_KEY" \
+            --assistant-id "$OPENAI_ASSISTANT_ID" \
+            --token "$GH_TOKEN" \
+            --repo "$REPO" \
+            --message "$MESSAGE" \
+            --gh-before "$GH_BEFORE" \
+            --sha "$SHA" \
+            --branch "$BRANCH" \
+            --is-pr \
+            --pr-number "$PR_NUMBER"
