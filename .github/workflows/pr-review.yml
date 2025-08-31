@@ -25,7 +25,7 @@ jobs:
         run: |
           git clone ${{ secrets.CODE_DIFF_REVIEW_REPO }} code-diff-review
           cd code-diff-review
-          pip install -r requirements.txt
+          pip install -r apps/code-diff-review/requirements.txt
       
       # Caso 3: Creación de PR (comparar con rama de destino)
       - name: Run Review for New Pull Request
@@ -40,7 +40,7 @@ jobs:
           BRANCH: ${{ github.event.pull_request.head.ref }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          python code-diff-review/src/script.py \
+          python code-diff-review/apps/code-diff-review/src/script.py \
             --openai-key "$OPENAI_API_KEY" \
             --assistant-id "$OPENAI_ASSISTANT_ID" \
             --token "$GH_TOKEN" \

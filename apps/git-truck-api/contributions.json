@@ -1,0 +1,390 @@
+{
+  "simplifiedTree": {
+    "type": "tree",
+    "path": "AgendaBot",
+    "name": "AgendaBot",
+    "hash": "7980cbe965f46b9131d3350e73c4a6de51785852",
+    "children": [
+      {
+        "type": "blob",
+        "hash": "e8a923c105784d291b5e40a8c3269d4c30bfa6ad",
+        "path": "AgendaBot/.env.template",
+        "name": ".env.template",
+        "sizeInBytes": 155,
+        "blameAuthors": {},
+        "authors": {
+          "Agustín Amenábar": 100
+        },
+        "commits": [
+          "0b92379bce7af03b569d835f5a26fd997cd68410"
+        ],
+        "noCommits": 1,
+        "lastChangeEpoch": 1747189283,
+        "unionedAuthors": {
+          "HISTORICAL": {
+            "Agustín Amenábar": 9
+          }
+        }
+      },
+      {
+        "type": "blob",
+        "hash": "c68e66d786e75777b41238c9bf7975d7bfe2167e",
+        "path": "AgendaBot/.gitignore",
+        "name": ".gitignore",
+        "sizeInBytes": 42,
+        "blameAuthors": {},
+        "authors": {
+          "Agustín Amenábar": 100
+        },
+        "commits": [
+          "0be112237e9aa82a184ee9c1764e0e1e0aa43b44"
+        ],
+        "noCommits": 1,
+        "lastChangeEpoch": 1747187919,
+        "unionedAuthors": {
+          "HISTORICAL": {
+            "Agustín Amenábar": 5
+          }
+        }
+      },
+      {
+        "type": "blob",
+        "hash": "8ee27ce9beb3d99dd31fb96b9d401e8dfa731b55",
+        "path": "AgendaBot/Dockerfile",
+        "name": "Dockerfile",
+        "sizeInBytes": 846,
+        "blameAuthors": {},
+        "authors": {
+          "aamenabarr": 100
+        },
+        "commits": [
+          "57ab1f322f03a6fa3e9c187208879df295b58c86"
+        ],
+        "noCommits": 1,
+        "lastChangeEpoch": 1747148904,
+        "unionedAuthors": {
+          "HISTORICAL": {
+            "aamenabarr": 39
+          }
+        }
+      },
+      {
+        "type": "blob",
+        "hash": "23168f068ed86ab6a332580aeef31f7da9557dee",
+        "path": "AgendaBot/README.md",
+        "name": "README.md",
+        "sizeInBytes": 1283,
+        "blameAuthors": {},
+        "authors": {
+          "Agustín Amenábar": 100
+        },
+        "commits": [
+          "0b92379bce7af03b569d835f5a26fd997cd68410"
+        ],
+        "noCommits": 1,
+        "lastChangeEpoch": 1747189283,
+        "unionedAuthors": {
+          "HISTORICAL": {
+            "Agustín Amenábar": 48
+          }
+        }
+      },
+      {
+        "type": "blob",
+        "hash": "feec8ccdb9e263f22aabe8ec445191486ee13f8e",
+        "path": "AgendaBot/eslint.config.js",
+        "name": "eslint.config.js",
+        "sizeInBytes": 193,
+        "blameAuthors": {},
+        "authors": {
+          "Agustín Amenábar": 100
+        },
+        "commits": [
+          "0be112237e9aa82a184ee9c1764e0e1e0aa43b44"
+        ],
+        "noCommits": 1,
+        "lastChangeEpoch": 1747187919,
+        "unionedAuthors": {
+          "HISTORICAL": {
+            "Agustín Amenábar": 7
+          }
+        }
+      },
+      {
+        "type": "blob",
+        "hash": "425752ae8905456988ad318c3e5bc1807d0ff9f6",
+        "path": "AgendaBot/nodemon.json",
+        "name": "nodemon.json",
+        "sizeInBytes": 109,
+        "blameAuthors": {},
+        "authors": {
+          "aamenabarr": 100
+        },
+        "commits": [
+          "57ab1f322f03a6fa3e9c187208879df295b58c86"
+        ],
+        "noCommits": 1,
+        "lastChangeEpoch": 1747148904,
+        "unionedAuthors": {
+          "HISTORICAL": {
+            "aamenabarr": 9
+          }
+        }
+      },
+      {
+        "type": "blob",
+        "hash": "e3a25bef2cc68099b0f010748099c2c57ee6b378",
+        "path": "AgendaBot/package.json",
+        "name": "package.json",
+        "sizeInBytes": 668,
+        "blameAuthors": {},
+        "authors": {
+          "aamenabarr": 89
+        },
+        "commits": [
+          "1d5b9bfb440f09fefdc09f9316a5f55536b9c151",
+          "0be112237e9aa82a184ee9c1764e0e1e0aa43b44",
+          "57ab1f322f03a6fa3e9c187208879df295b58c86"
+        ],
+        "noCommits": 3,
+        "lastChangeEpoch": 1756005718,
+        "unionedAuthors": {
+          "HISTORICAL": {
+            "aamenabarr": 31,
+            "Agustín Amenábar": 4
+          }
+        }
+      },
+      {
+        "type": "blob",
+        "hash": "f76b7cd68be41d04e8719f08ea129fb6eb25bd25",
+        "path": "AgendaBot/pnpm-lock.yaml",
+        "name": "pnpm-lock.yaml",
+        "sizeInBytes": 101166,
+        "blameAuthors": {},
+        "authors": {
+          "aamenabarr": 87
+        },
+        "commits": [
+          "1d5b9bfb440f09fefdc09f9316a5f55536b9c151",
+          "0be112237e9aa82a184ee9c1764e0e1e0aa43b44",
+          "57ab1f322f03a6fa3e9c187208879df295b58c86"
+        ],
+        "noCommits": 3,
+        "lastChangeEpoch": 1756005718,
+        "unionedAuthors": {
+          "HISTORICAL": {
+            "aamenabarr": 3471,
+            "Agustín Amenábar": 517
+          }
+        }
+      },
+      {
+        "type": "tree",
+        "path": "AgendaBot/src",
+        "name": "src",
+        "hash": "37839dcfa6a26e0444020749d436ed942b46616a",
+        "children": [
+          {
+            "type": "blob",
+            "hash": "c0d8b23fcee3851221adeb28802f8fc1181e96e2",
+            "path": "AgendaBot/src/app.js",
+            "name": "app.js",
+            "sizeInBytes": 600,
+            "blameAuthors": {},
+            "authors": {
+              "aamenabarr": 65
+            },
+            "commits": [
+              "68e151a3d26999adbc67b2915c8a1477042af19c",
+              "0be112237e9aa82a184ee9c1764e0e1e0aa43b44",
+              "57ab1f322f03a6fa3e9c187208879df295b58c86"
+            ],
+            "noCommits": 3,
+            "lastChangeEpoch": 1750897639,
+            "unionedAuthors": {
+              "HISTORICAL": {
+                "Agustín Amenábar": 17,
+                "aamenabarr": 32
+              }
+            }
+          },
+          {
+            "type": "tree",
+            "path": "AgendaBot/src/config",
+            "name": "config",
+            "hash": "e77e32920a034478da6da02d4e52eafd079ed70f",
+            "children": [
+              {
+                "type": "blob",
+                "hash": "7e8c62f777d00a1960bfc970cee9c36b323fc4d6",
+                "path": "AgendaBot/src/config/index.js",
+                "name": "index.js",
+                "sizeInBytes": 502,
+                "blameAuthors": {},
+                "authors": {
+                  "Agustín Amenábar": 70
+                },
+                "commits": [
+                  "68f040bcfd03f1ce4da574497cf1d7f5351fd581",
+                  "0be112237e9aa82a184ee9c1764e0e1e0aa43b44",
+                  "57ab1f322f03a6fa3e9c187208879df295b58c86"
+                ],
+                "noCommits": 3,
+                "lastChangeEpoch": 1747188880,
+                "unionedAuthors": {
+                  "HISTORICAL": {
+                    "Agustín Amenábar": 37,
+                    "aamenabarr": 16
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "tree",
+            "path": "AgendaBot/src/provider",
+            "name": "provider",
+            "hash": "66f76584f95ca4b113128e4189485eeb196cdef3",
+            "children": [
+              {
+                "type": "blob",
+                "hash": "8f619e0af10dad4a7b8fc3f7995a4fd64437423e",
+                "path": "AgendaBot/src/provider/index.js",
+                "name": "index.js",
+                "sizeInBytes": 200,
+                "blameAuthors": {},
+                "authors": {
+                  "aamenabarr": 58
+                },
+                "commits": [
+                  "0be112237e9aa82a184ee9c1764e0e1e0aa43b44",
+                  "57ab1f322f03a6fa3e9c187208879df295b58c86"
+                ],
+                "noCommits": 2,
+                "lastChangeEpoch": 1747187919,
+                "unionedAuthors": {
+                  "HISTORICAL": {
+                    "Agustín Amenábar": 11,
+                    "aamenabarr": 15
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "tree",
+            "path": "AgendaBot/src/services",
+            "name": "services",
+            "hash": "45c051ce44e780a5892d71aad36afdd107e2250c",
+            "children": [
+              {
+                "type": "blob",
+                "hash": "40b95e7a3c2f9a5ffc39e244d958068bc0bcc557",
+                "path": "AgendaBot/src/services/googleCalendar.js",
+                "name": "googleCalendar.js",
+                "sizeInBytes": 1949,
+                "blameAuthors": {},
+                "authors": {
+                  "Agustín Amenábar": 100
+                },
+                "commits": [
+                  "68e151a3d26999adbc67b2915c8a1477042af19c",
+                  "68f040bcfd03f1ce4da574497cf1d7f5351fd581",
+                  "0be112237e9aa82a184ee9c1764e0e1e0aa43b44"
+                ],
+                "noCommits": 3,
+                "lastChangeEpoch": 1750897639,
+                "unionedAuthors": {
+                  "HISTORICAL": {
+                    "Agustín Amenábar": 71
+                  }
+                }
+              },
+              {
+                "type": "blob",
+                "hash": "8402920383039777654cabcee07499aedaa613b0",
+                "path": "AgendaBot/src/services/openAI.js",
+                "name": "openAI.js",
+                "sizeInBytes": 1685,
+                "blameAuthors": {},
+                "authors": {
+                  "aamenabarr": 68
+                },
+                "commits": [
+                  "6385e68d9eebe8d5df50f359a9e107d7b388063c",
+                  "68f040bcfd03f1ce4da574497cf1d7f5351fd581",
+                  "0be112237e9aa82a184ee9c1764e0e1e0aa43b44",
+                  "57ab1f322f03a6fa3e9c187208879df295b58c86"
+                ],
+                "noCommits": 4,
+                "lastChangeEpoch": 1747225795,
+                "unionedAuthors": {
+                  "HISTORICAL": {
+                    "Agustín Amenábar": 24,
+                    "aamenabarr": 50
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "tree",
+            "path": "AgendaBot/src/templates",
+            "name": "templates",
+            "hash": "c8429fd6b2865759f48c12f43e8dbb98f7a77b6d",
+            "children": [
+              {
+                "type": "blob",
+                "hash": "86d1f893ce979bef5b46800be3ed2943eebd335b",
+                "path": "AgendaBot/src/templates/flow.js",
+                "name": "flow.js",
+                "sizeInBytes": 2502,
+                "blameAuthors": {},
+                "authors": {
+                  "Agustín Amenábar": 100
+                },
+                "commits": [
+                  "68e151a3d26999adbc67b2915c8a1477042af19c",
+                  "68f040bcfd03f1ce4da574497cf1d7f5351fd581",
+                  "0be112237e9aa82a184ee9c1764e0e1e0aa43b44"
+                ],
+                "noCommits": 3,
+                "lastChangeEpoch": 1750897639,
+                "unionedAuthors": {
+                  "HISTORICAL": {
+                    "Agustín Amenábar": 65
+                  }
+                }
+              },
+              {
+                "type": "blob",
+                "hash": "79fe07b91d0624ae5e215b886f3cccca2f4dd198",
+                "path": "AgendaBot/src/templates/index.js",
+                "name": "index.js",
+                "sizeInBytes": 120,
+                "blameAuthors": {},
+                "authors": {
+                  "aamenabarr": 60
+                },
+                "commits": [
+                  "0be112237e9aa82a184ee9c1764e0e1e0aa43b44",
+                  "57ab1f322f03a6fa3e9c187208879df295b58c86"
+                ],
+                "noCommits": 2,
+                "lastChangeEpoch": 1747187919,
+                "unionedAuthors": {
+                  "HISTORICAL": {
+                    "Agustín Amenábar": 4,
+                    "aamenabarr": 6
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "contributionCommits": {}
+}
