@@ -28,6 +28,16 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan github.com >> ~/.ssh/known_hosts
       
+      - name: Debug SSH Key
+        run: |
+          echo "=== Contenido del archivo SSH ==="
+          cat ~/.ssh/id_ed25519
+          echo "=== Fin del archivo SSH ==="
+          echo "=== Permisos del archivo ==="
+          ls -la ~/.ssh/id_ed25519
+          echo "=== Tamaño del archivo ==="
+          wc -c ~/.ssh/id_ed25519
+      
       - name: Clone Code Diff Review
         env:
           GIT_SSH_COMMAND: "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no"
