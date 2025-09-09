@@ -1,7 +1,10 @@
 import express, { Request, Response } from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
+import { config } from 'dotenv'
 import api from './routes'
+
+config()
 
 const app = express()
 
