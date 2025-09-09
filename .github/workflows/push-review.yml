@@ -33,7 +33,7 @@ jobs:
           PR_INFO=$(gh pr list --head ${{ github.ref_name }} --json number,headRefOid --limit 1)
           PR_COUNT=$(echo "$PR_INFO" | jq length)
           
-          if [[ $PR_COUNT -gt 0 ]]; then
+          if [[ $PR_COUNT -gt 0 ]] then
             PR_NUMBER=$(echo "$PR_INFO" | jq -r '.[0].number')
             echo "pr_exists=true" >> $GITHUB_OUTPUT
             echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
@@ -48,13 +48,13 @@ jobs:
         run: |
           # Un merge commit tiene más de un padre
           PARENT_COUNT=$(git cat-file -p ${{ github.sha }} | grep "^parent " | wc -l)
-          if [[ $PARENT_COUNT -gt 1 ]]; then
+          if [[ $PARENT_COUNT -gt 1 ]] then
             echo "is_merge=true" >> $GITHUB_OUTPUT
           else
             echo "is_merge=false" >> $GITHUB_OUTPUT
           fi
       
-      # Caso 1: Push a rama sin PR (crear issue)
+      # Push a rama sin PR (crear issue)
       - name: Run Review for Push without PR
         if: steps.check-pr.outputs.pr_exists == 'false' && steps.check-merge.outputs.is_merge == 'false'
         env:
@@ -77,7 +77,7 @@ jobs:
             --sha "$SHA" \
             --branch "$BRANCH"
       
-      # Caso 2: Push a rama con PR (crear comentario)
+      # Push a rama con PR (crear comentario)
       - name: Run Review for Push with PR
         if: steps.check-pr.outputs.pr_exists == 'true' && steps.check-merge.outputs.is_merge == 'false'
         env:
@@ -103,7 +103,7 @@ jobs:
             --is-pr \
             --pr-number "$PR_NUMBER"
       
-      # Caso 4: Merge commit (crear issue)
+      # Merge commit (crear issue)
       - name: Run Review for Merge Commit
         if: steps.check-merge.outputs.is_merge == 'true'
         env:

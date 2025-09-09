@@ -1,8 +1,8 @@
-import express from 'express';
-import { getRepoData } from '../controllers/repo';
+import express from 'express'
+import { getRepoData } from '../controllers/repo'
 
-const router = express.Router();
+const router = express.Router()
 
-router.get("/", getRepoData);
+router.get('/', getRepoData)
 
-export default router;
+export default router

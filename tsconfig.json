@@ -5,7 +5,7 @@
     "moduleResolution": "node",
     "lib": ["ES2020"],
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./apps",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -25,6 +25,6 @@
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+  "include": ["apps/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "apps/**/node_modules", "apps/**/dist"]
 }
