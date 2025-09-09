@@ -73,7 +73,7 @@ def main():
     parser = argparse.ArgumentParser(description="Commit message and diff handler with OpenAI assistance.")
 
     parser.add_argument('--openai-key', default=os.getenv('OPENAI_API_KEY'), help='OpenAI API key')
-    parser.add_argument('--assistant-id', default=os.getenv('OPENAI_ASSISTANT_ID'), help='OpenAI assistant ID')
+    parser.add_argument('--assistant-id', default=os.getenv('CODE_DIFF_REVIEWER_OPENAI_ASSISTANT_ID'), help='OpenAI assistant ID')
     parser.add_argument('--token', default=os.getenv('GH_TOKEN'), help='GitHub token')
 
     parser.add_argument('--repo', default=os.getenv('REPO'), help='Repository name')

@@ -31,7 +31,7 @@ jobs:
       - name: Run Review for New Pull Request
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_ASSISTANT_ID: ${{ secrets.OPENAI_ASSISTANT_ID }}
+          CODE_DIFF_REVIEWER_OPENAI_ASSISTANT_ID: ${{ secrets.CODE_DIFF_REVIEWER_OPENAI_ASSISTANT_ID }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           REPO: ${{ github.repository }}
           MESSAGE: ${{ github.event.pull_request.title }}
@@ -42,7 +42,7 @@ jobs:
         run: |
           python code-diff-review/apps/code-diff-review/src/script.py \
             --openai-key "$OPENAI_API_KEY" \
-            --assistant-id "$OPENAI_ASSISTANT_ID" \
+            --assistant-id "$CODE_DIFF_REVIEWER_OPENAI_ASSISTANT_ID" \
             --token "$GH_TOKEN" \
             --repo "$REPO" \
             --message "$MESSAGE" \
