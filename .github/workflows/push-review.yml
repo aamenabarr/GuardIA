@@ -33,7 +33,7 @@ jobs:
           PR_INFO=$(gh pr list --head ${{ github.ref_name }} --json number,headRefOid --limit 1)
           PR_COUNT=$(echo "$PR_INFO" | jq length)
           
-          if [[ $PR_COUNT -gt 0 ]]; then
+          if [[ $PR_COUNT -gt 0 ]] then
             PR_NUMBER=$(echo "$PR_INFO" | jq -r '.[0].number')
             echo "pr_exists=true" >> $GITHUB_OUTPUT
             echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
@@ -48,7 +48,7 @@ jobs:
         run: |
           # Un merge commit tiene más de un padre
           PARENT_COUNT=$(git cat-file -p ${{ github.sha }} | grep "^parent " | wc -l)
-          if [[ $PARENT_COUNT -gt 1 ]]; then
+          if [[ $PARENT_COUNT -gt 1 ]] then
             echo "is_merge=true" >> $GITHUB_OUTPUT
           else
             echo "is_merge=false" >> $GITHUB_OUTPUT

@@ -25,4 +25,4 @@ module.exports = {
     'node_modules/',
     '*.js',
   ],
-};
+}

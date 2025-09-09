@@ -1,8 +1,8 @@
-import express from 'express';
-import { getContributionsData } from '../controllers/contribution';
+import express from 'express'
+import { getContributionsData } from '../controllers/contribution'
 
-const router = express.Router();
+const router = express.Router()
 
-router.get("/", getContributionsData);
+router.get('/', getContributionsData)
 
-export default router;
+export default router

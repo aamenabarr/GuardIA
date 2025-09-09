@@ -1,8 +1,8 @@
-import express from 'express';
-import { getComplexityMetrics } from '../controllers/complexity';
+import express from 'express'
+import { getComplexityMetrics } from '../controllers/complexity'
 
-const router = express.Router();
+const router = express.Router()
 
-router.get("/", getComplexityMetrics);
+router.get('/', getComplexityMetrics)
 
-export default router;
+export default router
