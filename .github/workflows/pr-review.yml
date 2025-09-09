@@ -27,7 +27,7 @@ jobs:
           cd code-diff-review
           pip install -r apps/code-diff-review/requirements.txt
       
-      # Caso 3: Creación de PR (comparar con rama de destino)
+      # Creación de PR (comparar con rama de destino)
       - name: Run Review for New Pull Request
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

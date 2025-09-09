@@ -54,7 +54,7 @@ jobs:
             echo "is_merge=false" >> $GITHUB_OUTPUT
           fi
       
-      # Caso 1: Push a rama sin PR (crear issue)
+      # Push a rama sin PR (crear issue)
       - name: Run Review for Push without PR
         if: steps.check-pr.outputs.pr_exists == 'false' && steps.check-merge.outputs.is_merge == 'false'
         env:
@@ -77,7 +77,7 @@ jobs:
             --sha "$SHA" \
             --branch "$BRANCH"
       
-      # Caso 2: Push a rama con PR (crear comentario)
+      # Push a rama con PR (crear comentario)
       - name: Run Review for Push with PR
         if: steps.check-pr.outputs.pr_exists == 'true' && steps.check-merge.outputs.is_merge == 'false'
         env:
@@ -103,7 +103,7 @@ jobs:
             --is-pr \
             --pr-number "$PR_NUMBER"
       
-      # Caso 4: Merge commit (crear issue)
+      # Merge commit (crear issue)
       - name: Run Review for Merge Commit
         if: steps.check-merge.outputs.is_merge == 'true'
         env:
