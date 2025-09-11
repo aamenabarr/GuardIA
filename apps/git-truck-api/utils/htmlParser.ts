@@ -11,8 +11,6 @@ import {
   calculateComplexityMetric,
 } from './jsonUtils'
 
-import { promises as fs } from 'fs'
-
 const parseBranchData = (html: string) => {
   const htmlContent = html
   const scriptContent = htmlContent.match(
@@ -56,8 +54,6 @@ const parseBranchDataforContributions = async (html: string) => {
   const simplifiedTree = simplifyContributions(tree)
 
   const data = JSON.stringify({ simplifiedTree, contributionCommits }, null, 2)
-
-  await fs.writeFile('contributions.json', data)
 
   return { simplifiedTree, contributionCommits }
 }
