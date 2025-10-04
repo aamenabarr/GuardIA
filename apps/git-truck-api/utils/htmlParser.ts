@@ -53,8 +53,6 @@ const parseBranchDataforContributions = async (html: string) => {
 
   const simplifiedTree = simplifyContributions(tree)
 
-  const data = JSON.stringify({ simplifiedTree, contributionCommits }, null, 2)
-
   return { simplifiedTree, contributionCommits }
 }
 
